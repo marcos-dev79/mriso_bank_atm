@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d2d3d7c-f9a6-4087-ad2f-d04e76bada58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/exception/InvalidInitialCashException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/operations/ATMinitializer.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/risolabs/exception/InvalidInitialCashException.java" afterPath="$PROJECT_DIR$/src/com/risolabs/exception/InvalidCashException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/risolabs/operations/ATMinitializer.java" afterPath="$PROJECT_DIR$/src/com/risolabs/operations/ATMProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/Main.class" afterPath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/domain/Banknotes.class" afterPath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/domain/Banknotes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/domain/MoneySupply.class" afterPath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/domain/MoneySupply.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/exception/OutOfCashException.class" afterPath="$PROJECT_DIR$/out/production/mriso_bank/com/risolabs/exception/OutOfCashException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/risolabs/Main.java" afterPath="$PROJECT_DIR$/src/com/risolabs/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/risolabs/domain/Banknotes.java" afterPath="$PROJECT_DIR$/src/com/risolabs/domain/Banknotes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/risolabs/domain/MoneySupply.java" afterPath="$PROJECT_DIR$/src/com/risolabs/domain/MoneySupply.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/risolabs/exception/OutOfCashException.java" afterPath="$PROJECT_DIR$/src/com/risolabs/exception/OutOfCashException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/risolabs/domain/Account.java" afterPath="$PROJECT_DIR$/src/com/risolabs/domain/Account.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +19,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/risolabs/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,14 +31,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/risolabs/domain/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="640">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#523#524#0" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#593#594#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,7 +119,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/risolabs/domain/Operations.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/config/ATM.java" />
-        <option value="$PROJECT_DIR$/src/com/risolabs/domain/Account.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/exception/AbstractException.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/domain/Money.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/config/ATMinitializer.java" />
@@ -141,6 +131,7 @@
         <option value="$PROJECT_DIR$/src/com/risolabs/domain/Banknotes.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/operations/ATMProcessor.java" />
         <option value="$PROJECT_DIR$/src/com/risolabs/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/risolabs/domain/Account.java" />
       </list>
     </option>
   </component>
@@ -539,6 +530,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0d2d3d7c-f9a6-4087-ad2f-d04e76bada58" name="Default" comment="" />
@@ -551,7 +545,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="-11" width="1875" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -562,7 +555,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -613,8 +606,12 @@
         <state relative-caret-position="400">
           <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -705,17 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/risolabs/domain/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/risolabs/exception/OutOfCashException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -778,10 +764,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/risolabs/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/risolabs/domain/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
           </folding>
         </state>
       </provider>

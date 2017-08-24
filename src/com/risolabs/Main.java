@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws AbstractException {
 
-        boolean session = true;
+        boolean session = false;
         ATMProcessor atmProcessor = new ATMProcessor();
     }
 }

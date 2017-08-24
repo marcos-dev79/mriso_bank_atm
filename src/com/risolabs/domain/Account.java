@@ -17,9 +17,19 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-
     public String getUsername() {
         return username;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void withDrawFromBalance(BigDecimal withdraw) {
     }
 
 }
