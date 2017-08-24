@@ -6,7 +6,7 @@ package com.risolabs.exception;
 public class OutOfCashException extends AbstractException {
 
     public OutOfCashException(){
-        super("This ATMProcessor is out of Cash. Please go to another ATMProcessor.");
+        super("This ATM is out of Cash. Please go to another ATM.");
     }
 
 }

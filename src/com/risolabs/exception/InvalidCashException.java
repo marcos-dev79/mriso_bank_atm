@@ -6,7 +6,7 @@ package com.risolabs.exception;
 public class InvalidCashException extends AbstractException {
 
     public InvalidCashException(){
-        super("Total cash supplied at ATM must be multiple of 10.");
+        super("Your request is not available.");
     }
 
 }

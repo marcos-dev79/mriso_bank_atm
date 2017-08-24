@@ -2,9 +2,13 @@ package com.risolabs.operations;
 
 import com.risolabs.domain.Account;
 import com.risolabs.domain.Money;
+import com.risolabs.exception.AbstractException;
 import com.risolabs.exception.AccountNotFoundException;
+import com.risolabs.exception.OutOfCashException;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,16 +16,15 @@ import java.util.Map;
  * Created by @mriso_dev on 24/08/17
  * This Class Initializes the Sample Accounts
  * Could be refactored to call a service to a Mainframe
- * Without disrupting the ATMProcessor
  */
-public class AccountManager {
+public class AccountService {
 
     private final Map<String, Account> accounts = new HashMap<>();
     private Account account;
     private int loginChances;
     private boolean loggedIn;
 
-    public AccountManager() {
+    public AccountService() {
 
         Account acc1 = new Account("João da Silva", new BigDecimal(10854.78), "54125-9");
         Account acc2 = new Account("Pedro Otávio Magalhães", new BigDecimal(1050.99), "25214-8");
@@ -40,8 +43,11 @@ public class AccountManager {
     }
 
     public boolean verifyAccount(final String accountNumber) throws AccountNotFoundException {
+
         if(loginChances > 1) {
-            account = accounts.get(accountNumber);
+
+            account = accounts.get(accountNumber.trim());
+
             if (account != null) {
                 loggedIn = true;
                 System.out.println("Welcome " + account.getUsername() + "! \n \n");
@@ -56,6 +62,21 @@ public class AccountManager {
         } else {
             throw new AccountNotFoundException();
         }
+
+    }
+
+    public BigDecimal getAccountBalance() {
+        return account.getBalance();
+    }
+
+    public void withDrawCash(Integer moneyRequired) throws AbstractException {
+        BigDecimal cash = new BigDecimal(moneyRequired);
+        account.withDrawFromBalance(cash);
+    }
+
+    public void Deposit(Integer moneyDeposited) {
+        BigDecimal cash = new BigDecimal(moneyDeposited);
+        account.DepositToBalance(cash);
     }
 
 
