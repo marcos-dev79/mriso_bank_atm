@@ -1,0 +1,62 @@
+package com.risolabs.operations;
+
+import com.risolabs.domain.Account;
+import com.risolabs.domain.Money;
+import com.risolabs.exception.AccountNotFoundException;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by @mriso_dev on 24/08/17
+ * This Class Initializes the Sample Accounts
+ * Could be refactored to call a service to a Mainframe
+ * Without disrupting the ATMProcessor
+ */
+public class AccountManager {
+
+    private final Map<String, Account> accounts = new HashMap<>();
+    private Account account;
+    private int loginChances;
+    private boolean loggedIn;
+
+    public AccountManager() {
+
+        Account acc1 = new Account("João da Silva", new BigDecimal(10854.78), "54125-9");
+        Account acc2 = new Account("Pedro Otávio Magalhães", new BigDecimal(1050.99), "25214-8");
+        Account acc3 = new Account("Maria Green", new BigDecimal(7696), "88452-1");
+        Account acc4 = new Account("Stephan Pereira", new BigDecimal(412.13), "15935-7");
+
+        accounts.put(acc1.getAccountNumber(), acc1);
+        accounts.put(acc2.getAccountNumber(), acc2);
+        accounts.put(acc3.getAccountNumber(), acc3);
+        accounts.put(acc4.getAccountNumber(), acc4);
+
+        account = null;
+        loginChances = 3;
+        loggedIn = false;
+
+    }
+
+    public boolean verifyAccount(final String accountNumber) throws AccountNotFoundException {
+        if(loginChances > 1) {
+            account = accounts.get(accountNumber);
+            if (account != null) {
+                loggedIn = true;
+                System.out.println("Welcome " + account.getUsername() + "! \n \n");
+            } else {
+                loginChances--;
+                loggedIn = false;
+                System.out.println("Account not found. Try Again ("+ Integer.toString(loginChances) +") \n \n");
+            }
+
+            return loggedIn;
+
+        } else {
+            throw new AccountNotFoundException();
+        }
+    }
+
+
+}

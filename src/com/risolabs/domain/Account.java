@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 /**
  * Created by @mriso_dev on 23/08/17
+ * This class represents the user's account
  */
 public class Account {
 
@@ -30,6 +31,7 @@ public class Account {
     }
 
     public void withDrawFromBalance(BigDecimal withdraw) {
+        this.balance = balance.subtract(withdraw);
     }
 
 }
