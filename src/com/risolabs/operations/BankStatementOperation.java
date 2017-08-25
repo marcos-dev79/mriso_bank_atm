@@ -37,7 +37,7 @@ public class BankStatementOperation extends AbstractAtmOperations implements Ope
     }
 
     public void execute () {
-
+        this.PrintBankStatement();
     }
 
 }

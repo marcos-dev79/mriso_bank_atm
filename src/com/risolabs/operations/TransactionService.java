@@ -1,6 +1,8 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Transaction;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,6 +11,11 @@ import java.util.List;
 public class TransactionService {
 
     private List<Transaction> transactions;
+
+    public TransactionService(){
+        super();
+        transactions = new ArrayList<>();
+    }
 
     public void addToList(Transaction transaction) {
         transactions.add(transaction);

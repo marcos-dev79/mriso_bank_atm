@@ -31,7 +31,11 @@ public class Main {
             BannerPrinter.PrintMenu(atmContext.MoneyAvailableStatement());
             atmContext.setUserOption(atmContext.scanNextInteger());
 
-            menuOperations.execute();
+            try {
+                menuOperations.execute();
+            } catch (AtmException e) {
+                System.out.println(e.getMessage());
+            }
 
         }
 

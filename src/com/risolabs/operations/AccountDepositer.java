@@ -30,7 +30,7 @@ public class AccountDepositer  extends AbstractAtmOperations implements Operatio
         }
     }
 
-    public void execute(){
+    public void execute() throws AtmException {
         try {
             System.out.println("\nPlease inform amount to deposit:");
             atmContext.setUserMoney(atmContext.scanNextInteger());

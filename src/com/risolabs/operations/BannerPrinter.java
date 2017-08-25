@@ -28,7 +28,7 @@ public class BannerPrinter {
     }
 
     public static void PrintMenu(String moneyAvailableStatement) {
-        System.out.print("\n===============================\n"
+        System.out.print("\n==============================================\n"
                 +"ATM Menu: \n \n"
                 + "1. Check Account Balance \n"
                 + "2. Withdraw Money (" + moneyAvailableStatement + ") \n"
@@ -36,7 +36,7 @@ public class BannerPrinter {
                 + "4. Transfer Funds \n"
                 + "5. Bank Statement\n"
                 + "6. End Session\n"
-                + "=======================================\n"
+                + "==============================================\n"
                 + "\nEnter selection: \n");
     }
 }

@@ -1,5 +1,8 @@
 package com.risolabs.operations;
 
+import com.risolabs.exception.AtmException;
+import com.risolabs.exception.InvalidOptionException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +33,14 @@ public class MenuOperations extends AbstractAtmOperations implements Operations 
         mappedMenu.put(6, programFinalizer);
     }
 
-    public void execute() {
+    public void execute() throws InvalidOptionException {
         Operations op = mappedMenu.get(atmContext.getUserOption());
-
         try {
             op.execute();
-        } catch (NullPointerException e) {
-            System.out.println("\nInvalid Option. Please select another.\n");
+        } catch (AtmException e) {
+            System.out.println(e.getMessage());
+        }catch(NullPointerException e){
+            throw new InvalidOptionException();
         }
-
     }
 }

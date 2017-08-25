@@ -30,7 +30,7 @@ public class AccountWithdrawer extends AbstractAtmOperations implements Operatio
         }
     }
 
-    public void execute(){
+    public void execute() throws AtmException {
         try {
             System.out.println("\nPlease inform amount to withdraw:");
             atmContext.setUserMoney(atmContext.scanNextInteger());
