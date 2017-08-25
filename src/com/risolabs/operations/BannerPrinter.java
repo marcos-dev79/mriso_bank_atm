@@ -21,6 +21,10 @@ public class BannerPrinter {
                 "                                                                                             \n";
 
         System.out.println(banner);
+
+        System.out.print("Welcome to MRiso Bank! \n \n");
+        System.out.print("Please Informe Account Number: ");
+
     }
 
     public static void PrintMenu(String moneyAvailableStatement) {

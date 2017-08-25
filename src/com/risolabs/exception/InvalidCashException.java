@@ -6,7 +6,7 @@ package com.risolabs.exception;
 public class InvalidCashException extends AtmException {
 
     public InvalidCashException(){
-        super("Your request is not available.");
+        super("We cannot perform this operation with this cash.");
     }
 
 }
