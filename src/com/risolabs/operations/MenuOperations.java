@@ -12,6 +12,7 @@ public class MenuOperations extends AbstractAtmOperations implements Operations 
     private AccountBalanceRetriever accountBalanceRetriever;
     private AccountDepositer accountDepositer;
     private ProgramFinalizer programFinalizer;
+    private BankStatementOperation bankStatementOperation;
     private Map<Integer, Operations> mappedMenu = new HashMap<>();
 
     public MenuOperations(final AtmContext atmContext) {
@@ -20,14 +21,16 @@ public class MenuOperations extends AbstractAtmOperations implements Operations 
         accountWithdrawer = new AccountWithdrawer(atmContext);
         accountDepositer = new AccountDepositer(atmContext);
         programFinalizer = new ProgramFinalizer(atmContext);
+        bankStatementOperation = new BankStatementOperation(atmContext);
 
         mappedMenu.put(1, accountBalanceRetriever);
         mappedMenu.put(2, accountWithdrawer);
         mappedMenu.put(3, accountDepositer);
+        mappedMenu.put(5, bankStatementOperation);
         mappedMenu.put(6, programFinalizer);
     }
 
-    public void execute(){
+    public void execute() {
         Operations op = mappedMenu.get(atmContext.getUserOption());
 
         try {
@@ -35,5 +38,6 @@ public class MenuOperations extends AbstractAtmOperations implements Operations 
         } catch (NullPointerException e) {
             System.out.println("\nInvalid Option. Please select another.\n");
         }
+
     }
 }

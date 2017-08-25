@@ -10,19 +10,23 @@ public class Main {
     public static void main(String[] args) throws AtmException {
 
         BannerPrinter.PrintBanner();
-        boolean logged   = false;
 
         AtmContext atmContext = new AtmContext();
         AccountVerifier accountVerifier = new AccountVerifier(atmContext);
 
-        while(logged == false) {
+        while(atmContext.isLogged() == false) {
             String accountNumber = atmContext.scanNext();
-            logged = accountVerifier.verifyAccount(accountNumber);
+            try {
+                atmContext.setLogged(accountVerifier.verifyAccount(accountNumber));
+            } catch (AtmException e) {
+                System.out.println(e.getMessage());
+                break;
+            }
         }
 
         MenuOperations menuOperations = new MenuOperations(atmContext);
 
-        while (atmContext.isSession()) {
+        while (atmContext.isSession() && atmContext.isLogged()) {
 
             BannerPrinter.PrintMenu(atmContext.MoneyAvailableStatement());
             atmContext.setUserOption(atmContext.scanNextInteger());

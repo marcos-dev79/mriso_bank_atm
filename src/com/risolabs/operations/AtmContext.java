@@ -1,7 +1,10 @@
 package com.risolabs.operations;
 
+import com.risolabs.domain.Transaction;
 import com.risolabs.exception.AtmException;
+
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,11 +17,29 @@ public class AtmContext {
     private Integer userMoney;
     private Integer userOption;
     private Scanner scan = new Scanner(System.in);
-    boolean session  = true;
+    private boolean session  = true;
+    private boolean logged   = false;
+    private TransactionService transactionService = new TransactionService();
 
     public AtmContext() throws AtmException {
         accountService = new AccountService();
         moneySupplier = new MoneySupplier();
+    }
+
+    public void addTransaction (Transaction transaction) {
+        transactionService.addToList(transaction);
+    }
+
+    public List<Transaction> getTransactionList () {
+        return transactionService.getListOfTransactions();
+    }
+
+    public boolean isLogged() {
+        return logged;
+    }
+
+    public void setLogged(boolean logged) {
+        this.logged = logged;
     }
 
     public boolean isSession() {

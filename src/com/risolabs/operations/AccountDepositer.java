@@ -1,6 +1,10 @@
 package com.risolabs.operations;
 
+import com.risolabs.domain.Transaction;
 import com.risolabs.exception.AtmException;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * Created by @mriso_dev on 25/08/17
@@ -13,6 +17,9 @@ public class AccountDepositer  extends AbstractAtmOperations implements Operatio
 
     public void depositMoney() throws AtmException {
         try {
+            LocalDateTime dateTime = LocalDateTime.now();
+            Transaction transaction = new Transaction(3, dateTime, BigDecimal.valueOf(atmContext.getUserMoney()));
+            atmContext.addTransaction(transaction);
             int[] cash;
             cash = atmContext.InsertCashNotes();
             atmContext.DepositIntoAccount();
