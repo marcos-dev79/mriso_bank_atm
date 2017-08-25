@@ -1,6 +1,6 @@
 package com.risolabs.domain;
 
-import com.risolabs.exception.AbstractException;
+import com.risolabs.exception.AtmException;
 import com.risolabs.exception.OutOfCashException;
 
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class Banknotes {
 
     private Map<Money, Integer> banknotes;
 
-    public Banknotes() throws AbstractException {
+    public Banknotes() throws AtmException {
 
         banknotes = new HashMap<>();
 

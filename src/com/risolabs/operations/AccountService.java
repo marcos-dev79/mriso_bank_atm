@@ -1,14 +1,10 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Account;
-import com.risolabs.domain.Money;
-import com.risolabs.exception.AbstractException;
+import com.risolabs.exception.AtmException;
 import com.risolabs.exception.AccountNotFoundException;
-import com.risolabs.exception.OutOfCashException;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,11 +46,11 @@ public class AccountService {
 
             if (account != null) {
                 loggedIn = true;
-                System.out.println("Welcome " + account.getUsername() + "! \n \n");
+                System.out.println("\nWelcome " + account.getUsername() + "!  \n");
             } else {
                 loginChances--;
                 loggedIn = false;
-                System.out.println("Account not found. Try Again ("+ Integer.toString(loginChances) +") \n \n");
+                System.out.println("\nAccount not found. Try Again ("+ Integer.toString(loginChances) +") \n");
             }
 
             return loggedIn;
@@ -69,7 +65,7 @@ public class AccountService {
         return account.getBalance();
     }
 
-    public void withDrawCash(Integer moneyRequired) throws AbstractException {
+    public void withDrawCash(Integer moneyRequired) throws AtmException {
         BigDecimal cash = new BigDecimal(moneyRequired);
         account.withDrawFromBalance(cash);
     }

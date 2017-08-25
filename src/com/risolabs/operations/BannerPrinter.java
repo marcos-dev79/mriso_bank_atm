@@ -33,6 +33,6 @@ public class BannerPrinter {
                 + "5. Bank Statement\n"
                 + "6. End Session\n"
                 + "=======================================\n"
-                + "\nEnter selection: ");
+                + "\nEnter selection: \n");
     }
 }

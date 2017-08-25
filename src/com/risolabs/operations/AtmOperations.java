@@ -1,9 +1,7 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Money;
-import com.risolabs.exception.AbstractException;
-import com.risolabs.exception.InvalidCashException;
-import com.risolabs.exception.OutOfCashException;
+import com.risolabs.exception.AtmException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -17,12 +15,12 @@ public class AtmOperations {
     private AccountService accountService;
     private MoneySupplier moneySupplier;
 
-    public AtmOperations() throws AbstractException {
+    public AtmOperations() throws AtmException {
         accountService = new AccountService();
         moneySupplier = new MoneySupplier();
     }
 
-    public boolean verifyAccount(String accountNumber) throws AbstractException {
+    public boolean verifyAccount(String accountNumber) throws AtmException {
         return accountService.verifyAccount(accountNumber);
     }
 
@@ -41,7 +39,7 @@ public class AtmOperations {
         System.out.println("\n");
     }
 
-    public void withDrawCash(Integer moneyRequired) throws AbstractException {
+    public void withDrawCash(Integer moneyRequired) throws AtmException {
 
         try {
             int[] cash;
@@ -54,20 +52,20 @@ public class AtmOperations {
             accountService.withDrawCash(debit);
 
             System.out.println("Take your notes: HUNDRED(" + cash[0] + ") FIFTY(" + cash[1] + ") TWENTY(" + cash[2] + ") TEN(" + cash[3] + ")");
-        } catch(AbstractException e) {
+        } catch(AtmException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void depositMoney(Integer moneyDeposited) throws AbstractException {
+    public void depositMoney(Integer moneyDeposited) throws AtmException {
         try {
           int[] cash;
           cash = moneySupplier.DepositCash(moneyDeposited);
           accountService.Deposit(moneyDeposited);
 
-            System.out.println("You deposited " + moneyDeposited + " with the following notes: HUNDRED(" + cash[0] + ") FIFTY(" + cash[1] + ") TWENTY(" + cash[2] + ") TEN(" + cash[3] + ")");
+          System.out.println("You deposited " + moneyDeposited + " with the following notes: HUNDRED(" + cash[0] + ") FIFTY(" + cash[1] + ") TWENTY(" + cash[2] + ") TEN(" + cash[3] + ")");
 
-        } catch (AbstractException e) {
+        } catch (AtmException e) {
             System.out.println(e.getMessage());
         }
     }

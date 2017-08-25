@@ -1,6 +1,6 @@
 package com.risolabs.domain;
 
-import com.risolabs.exception.AbstractException;
+import com.risolabs.exception.AtmException;
 import com.risolabs.exception.AccountWithoutFundsException;
 
 import java.math.BigDecimal;
@@ -33,7 +33,7 @@ public class Account {
         return accountNumber;
     }
 
-    public void withDrawFromBalance(BigDecimal withdraw) throws AbstractException {
+    public void withDrawFromBalance(BigDecimal withdraw) throws AtmException {
         int check = withdraw.compareTo(this.balance);
         if(check <= 0) {
             this.balance = balance.subtract(withdraw);
