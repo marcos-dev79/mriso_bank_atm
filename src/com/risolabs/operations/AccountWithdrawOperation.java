@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 /**
  * Created by @mriso_dev on 25/08/17
  */
-public class AccountWithdrawer extends AbstractAtmOperations implements Operations {
+public class AccountWithdrawOperation extends AbstractAtmOperations implements Operations {
 
-    public AccountWithdrawer(AtmContext atmContext) {
+    public AccountWithdrawOperation(AtmContext atmContext) {
         super(atmContext);
     }
 

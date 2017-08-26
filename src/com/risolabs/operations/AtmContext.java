@@ -1,6 +1,7 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Transaction;
+import com.risolabs.exception.AccountNotFoundException;
 import com.risolabs.exception.AtmException;
 
 import java.math.BigDecimal;
@@ -24,6 +25,10 @@ public class AtmContext {
     public AtmContext() throws AtmException {
         accountService = new AccountService();
         moneySupplier = new MoneySupplier();
+    }
+
+    public void TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
+        accountService.TransferIntoAccount(accountNumber, value);
     }
 
     public void addTransaction (Transaction transaction) {

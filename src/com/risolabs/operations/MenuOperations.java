@@ -11,26 +11,25 @@ import java.util.Map;
  */
 public class MenuOperations extends AbstractAtmOperations implements Operations {
 
-    private AccountWithdrawer accountWithdrawer;
-    private AccountBalanceRetriever accountBalanceRetriever;
-    private AccountDepositer accountDepositer;
-    private ProgramFinalizer programFinalizer;
-    private BankStatementOperation bankStatementOperation;
     private Map<Integer, Operations> mappedMenu = new HashMap<>();
 
     public MenuOperations(final AtmContext atmContext) {
         super(atmContext);
-        accountBalanceRetriever = new AccountBalanceRetriever(atmContext);
-        accountWithdrawer = new AccountWithdrawer(atmContext);
-        accountDepositer = new AccountDepositer(atmContext);
-        programFinalizer = new ProgramFinalizer(atmContext);
-        bankStatementOperation = new BankStatementOperation(atmContext);
+        AccountBalanceOperation accountBalanceOperation = new AccountBalanceOperation(atmContext);
+        AccountWithdrawOperation accountWithdrawOperation = new AccountWithdrawOperation(atmContext);
+        AccountDepositOperation accountDepositOperation = new AccountDepositOperation(atmContext);
+        ProgramFinalizeOperation programFinalizeOperation = new ProgramFinalizeOperation(atmContext);
+        MoneyTransferOperation moneyTransferOperation = new MoneyTransferOperation(atmContext);
+        BankStatementOperation bankStatementOperation = new BankStatementOperation(atmContext);
+        LogoutOperation logoutOperation = new LogoutOperation(atmContext);
 
-        mappedMenu.put(1, accountBalanceRetriever);
-        mappedMenu.put(2, accountWithdrawer);
-        mappedMenu.put(3, accountDepositer);
+        mappedMenu.put(1, accountBalanceOperation);
+        mappedMenu.put(2, accountWithdrawOperation);
+        mappedMenu.put(3, accountDepositOperation);
+        mappedMenu.put(4, moneyTransferOperation);
         mappedMenu.put(5, bankStatementOperation);
-        mappedMenu.put(6, programFinalizer);
+        mappedMenu.put(6, logoutOperation);
+        mappedMenu.put(7, programFinalizeOperation);
     }
 
     public void execute() throws InvalidOptionException {

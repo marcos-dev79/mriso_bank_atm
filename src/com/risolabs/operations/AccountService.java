@@ -1,6 +1,7 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Account;
+import com.risolabs.exception.AccountWithoutFundsException;
 import com.risolabs.exception.AtmException;
 import com.risolabs.exception.AccountNotFoundException;
 
@@ -36,6 +37,32 @@ public class AccountService {
         loginChances = 3;
         loggedIn = false;
 
+    }
+
+    public void TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
+
+        try {
+            BigDecimal myval = account.getBalance();
+
+            if(myval.compareTo(value) <= 0) {
+                throw new AccountWithoutFundsException();
+            }
+
+            Account into_account = accounts.get(accountNumber.trim());
+
+            if (into_account != null) {
+
+                account.withDrawFromBalance(value);
+                into_account.DepositToBalance(value);
+                System.out.println("\nMoney transfered successfully.\n");
+
+            } else {
+                throw new AccountNotFoundException();
+            }
+
+        } catch (AtmException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public boolean verifyAccount(final String accountNumber) throws AccountNotFoundException {

@@ -13,31 +13,36 @@ public class Main {
 
         AtmContext atmContext = new AtmContext();
         AccountVerifier accountVerifier = new AccountVerifier(atmContext);
+        MenuOperations menuOperations = new MenuOperations(atmContext);
 
-        while(atmContext.isLogged() == false) {
+
+        while(atmContext.isSession()) {
+            System.out.print("Please Informe Account Number: ");
             String accountNumber = atmContext.scanNext();
+
             try {
                 atmContext.setLogged(accountVerifier.verifyAccount(accountNumber));
             } catch (AtmException e) {
                 System.out.println(e.getMessage());
                 break;
             }
-        }
 
-        MenuOperations menuOperations = new MenuOperations(atmContext);
+            while (atmContext.isSession() && atmContext.isLogged()) {
 
-        while (atmContext.isSession() && atmContext.isLogged()) {
+                BannerPrinter.PrintMenu(atmContext.MoneyAvailableStatement());
+                atmContext.setUserOption(atmContext.scanNextInteger());
 
-            BannerPrinter.PrintMenu(atmContext.MoneyAvailableStatement());
-            atmContext.setUserOption(atmContext.scanNextInteger());
+                try {
+                    menuOperations.execute();
+                } catch (AtmException e) {
+                    System.out.println(e.getMessage());
+                }
 
-            try {
-                menuOperations.execute();
-            } catch (AtmException e) {
-                System.out.println(e.getMessage());
             }
 
+
         }
+
 
     }
 

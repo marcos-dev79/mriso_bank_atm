@@ -7,9 +7,9 @@ import java.time.format.DateTimeFormatter;
 /**
  * Created by @mriso_dev on 25/08/17
  */
-public class AccountBalanceRetriever extends AbstractAtmOperations implements Operations {
+public class AccountBalanceOperation extends AbstractAtmOperations implements Operations {
 
-    public AccountBalanceRetriever(AtmContext atmContext) {
+    public AccountBalanceOperation(AtmContext atmContext) {
         super(atmContext);
     }
 

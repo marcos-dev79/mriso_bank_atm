@@ -23,7 +23,6 @@ public class BannerPrinter {
         System.out.println(banner);
 
         System.out.print("Welcome to MRiso Bank! \n \n");
-        System.out.print("Please Informe Account Number: ");
 
     }
 
@@ -35,7 +34,8 @@ public class BannerPrinter {
                 + "3. Deposit Money \n"
                 + "4. Transfer Funds \n"
                 + "5. Bank Statement\n"
-                + "6. End Session\n"
+                + "6. Logout\n"
+                + "7. End Session\n"
                 + "==============================================\n"
                 + "\nEnter selection: \n");
     }
