@@ -17,7 +17,6 @@ public class MoneyTransferOperation extends AbstractAtmOperations implements Ope
 
     private void MoneyTransfer() throws AtmException {
         try {
-            LocalDateTime dateTime = LocalDateTime.now();
 
             System.out.println("\nPlease inform account to deposit:");
             String accountNumber = atmContext.scanNext();

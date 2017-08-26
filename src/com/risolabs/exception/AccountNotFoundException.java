@@ -5,6 +5,6 @@ package com.risolabs.exception;
  */
 public class AccountNotFoundException extends AtmException {
     public AccountNotFoundException(){
-        super("Account not found! Program aborted.");
+        super("Account not found! Please check it and try again.");
     }
 }

@@ -39,7 +39,7 @@ public class AccountService {
 
     }
 
-    public void TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
+    public boolean TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
 
         try {
             BigDecimal myval = account.getBalance();
@@ -54,8 +54,8 @@ public class AccountService {
 
                 account.withDrawFromBalance(value);
                 into_account.DepositToBalance(value);
-                System.out.println("\nMoney transfered successfully.\n");
-
+                System.out.println("\nMoney transfered successfully to "+ into_account.getUsername() +" ("+ into_account.getAccountNumber() +").\n");
+                return true;
             } else {
                 throw new AccountNotFoundException();
             }
@@ -63,6 +63,8 @@ public class AccountService {
         } catch (AtmException e) {
             System.out.println(e.getMessage());
         }
+
+        return false;
     }
 
     public boolean verifyAccount(final String accountNumber) throws AccountNotFoundException {

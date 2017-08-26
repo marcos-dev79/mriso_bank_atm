@@ -2,6 +2,7 @@ package com.risolabs.operations;
 
 import com.risolabs.domain.Transaction;
 import com.risolabs.exception.AtmException;
+import com.risolabs.exception.TransferException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -29,15 +30,17 @@ public class AtmContext {
     }
 
     public void TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
-        accountService.TransferIntoAccount(accountNumber, value);
+        if(accountService.TransferIntoAccount(accountNumber, value)) {
+            LocalDateTime dateTime = LocalDateTime.now();
 
-        LocalDateTime dateTime = LocalDateTime.now();
+            Transaction transactionDestiny = new Transaction(4, dateTime, value, accountNumber);
+            addTransaction(transactionDestiny);
 
-        Transaction transactionDestiny = new Transaction(4, dateTime, value, accountNumber);
-        addTransaction(transactionDestiny);
-
-        Transaction transaction = new Transaction(4, dateTime, value, accountService.getAccountNumber());
-        addTransaction(transaction);
+            Transaction transaction = new Transaction(4, dateTime, value, accountService.getAccountNumber());
+            addTransaction(transaction);
+        }else{
+            throw new TransferException();
+        }
     }
 
     public void addTransaction (Transaction transaction) {
@@ -46,10 +49,12 @@ public class AtmContext {
 
     public List<Transaction> getTransactionList () {
         String accountNumber = accountService.getAccountNumber();
+        String compare;
         List<Transaction> transactions =  transactionService.getListOfTransactions();
         List<Transaction> filtered = new ArrayList<>();
         for(Transaction atm : transactions) {
-            if(accountNumber == atm.getAccountNumber()) {
+            compare = atm.getAccountNumber().trim();
+            if(accountNumber.contentEquals(compare)) {
                 filtered.add(atm);
             }
         }
