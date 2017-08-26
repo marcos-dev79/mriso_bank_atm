@@ -92,6 +92,10 @@ public class AccountService {
         return account.getBalance();
     }
 
+    public String getAccountNumber() {
+        return account.getAccountNumber();
+    }
+
     public void withDrawCash(Integer moneyRequired) throws AtmException {
         BigDecimal cash = new BigDecimal(moneyRequired);
         account.withDrawFromBalance(cash);

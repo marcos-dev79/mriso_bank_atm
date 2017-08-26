@@ -1,10 +1,11 @@
 package com.risolabs.operations;
 
 import com.risolabs.domain.Transaction;
-import com.risolabs.exception.AccountNotFoundException;
 import com.risolabs.exception.AtmException;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,6 +30,14 @@ public class AtmContext {
 
     public void TransferIntoAccount(final String accountNumber, BigDecimal value) throws AtmException {
         accountService.TransferIntoAccount(accountNumber, value);
+
+        LocalDateTime dateTime = LocalDateTime.now();
+
+        Transaction transactionDestiny = new Transaction(4, dateTime, value, accountNumber);
+        addTransaction(transactionDestiny);
+
+        Transaction transaction = new Transaction(4, dateTime, value, accountService.getAccountNumber());
+        addTransaction(transaction);
     }
 
     public void addTransaction (Transaction transaction) {
@@ -36,7 +45,15 @@ public class AtmContext {
     }
 
     public List<Transaction> getTransactionList () {
-        return transactionService.getListOfTransactions();
+        String accountNumber = accountService.getAccountNumber();
+        List<Transaction> transactions =  transactionService.getListOfTransactions();
+        List<Transaction> filtered = new ArrayList<>();
+        for(Transaction atm : transactions) {
+            if(accountNumber == atm.getAccountNumber()) {
+                filtered.add(atm);
+            }
+        }
+        return filtered;
     }
 
     public boolean isLogged() {
@@ -96,6 +113,9 @@ public class AtmContext {
     }
 
     public void DebitFromAccount() throws AtmException {
+        LocalDateTime dateTime = LocalDateTime.now();
+        Transaction transaction = new Transaction(2, dateTime, BigDecimal.valueOf(userMoney), accountService.getAccountNumber());
+        addTransaction(transaction);
         accountService.withDrawCash(userMoney);
     }
 
@@ -104,6 +124,9 @@ public class AtmContext {
     }
 
     public void DepositIntoAccount() {
+        LocalDateTime dateTime = LocalDateTime.now();
+        Transaction transaction = new Transaction(2, dateTime, BigDecimal.valueOf(userMoney), accountService.getAccountNumber());
+        addTransaction(transaction);
         accountService.Deposit(userMoney);
     }
 

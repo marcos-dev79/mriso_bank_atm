@@ -17,9 +17,6 @@ public class AccountDepositOperation extends AbstractAtmOperations implements Op
 
     public void depositMoney() throws AtmException {
         try {
-            LocalDateTime dateTime = LocalDateTime.now();
-            Transaction transaction = new Transaction(3, dateTime, BigDecimal.valueOf(atmContext.getUserMoney()));
-            atmContext.addTransaction(transaction);
             int[] cash;
             cash = atmContext.InsertCashNotes();
             atmContext.DepositIntoAccount();

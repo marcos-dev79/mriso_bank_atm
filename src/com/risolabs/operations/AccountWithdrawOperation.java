@@ -17,10 +17,6 @@ public class AccountWithdrawOperation extends AbstractAtmOperations implements O
 
     private void withdrawCash() throws AtmException {
         try {
-            LocalDateTime dateTime = LocalDateTime.now();
-            Transaction transaction = new Transaction(2, dateTime, BigDecimal.valueOf(atmContext.getUserMoney()));
-            atmContext.addTransaction(transaction);
-
             int[] cash;
             cash = atmContext.RequestCashNotes();
             atmContext.DebitFromAccount();

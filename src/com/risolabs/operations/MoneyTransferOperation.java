@@ -26,11 +26,6 @@ public class MoneyTransferOperation extends AbstractAtmOperations implements Ope
 
             atmContext.TransferIntoAccount(accountNumber, BigDecimal.valueOf(value));
 
-
-            Transaction transaction = new Transaction(4, dateTime, BigDecimal.valueOf(value));
-            atmContext.addTransaction(transaction);
-
-
         } catch (AtmException e) {
             System.out.println(e.getMessage());
         }
