@@ -1,8 +1,8 @@
 # mriso_bank_atm
 
-## An ATM example in JAVA
+### An ATM example in JAVA
 
-# Features 
+## Features 
 - Command design pattern
 - Balance
 - Withdraw
