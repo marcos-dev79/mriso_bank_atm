@@ -3,8 +3,6 @@ package com.risolabs;
 import com.risolabs.exception.AtmException;
 import com.risolabs.operations.*;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) throws AtmException {
