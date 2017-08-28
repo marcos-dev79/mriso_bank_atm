@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="mriso_bank:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mriso_bank_jar</output-path>
+    <root id="archive" name="mriso_bank.jar">
+      <element id="module-output" name="mriso_bank" />
+    </root>
+  </artifact>
+</component>
