@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * Created by @mriso_dev on 23/08/17
- * This class represents the user's Aaccount
+ * This class represents the user's Account
  */
 public class Account {
 
@@ -15,7 +15,7 @@ public class Account {
     private BigDecimal balance;
     private String accountNumber;
 
-    public Account(String username, BigDecimal balance, String accountNumber) {
+    public Account(final String username, BigDecimal balance, final String accountNumber) {
         this.username = username;
         this.balance = balance;
         this.accountNumber = accountNumber;
