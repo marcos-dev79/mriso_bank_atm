@@ -130,7 +130,7 @@ public class AtmContext {
 
     public void DepositIntoAccount() {
         LocalDateTime dateTime = LocalDateTime.now();
-        Transaction transaction = new Transaction(2, dateTime, BigDecimal.valueOf(userMoney), accountService.getAccountNumber());
+        Transaction transaction = new Transaction(3, dateTime, BigDecimal.valueOf(userMoney), accountService.getAccountNumber());
         addTransaction(transaction);
         accountService.Deposit(userMoney);
     }

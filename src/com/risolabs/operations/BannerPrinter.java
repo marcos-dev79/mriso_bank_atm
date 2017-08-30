@@ -35,7 +35,7 @@ public class BannerPrinter {
                 + "4. Transfer Funds \n"
                 + "5. Bank Statement\n"
                 + "6. Logout\n"
-                + "7. End Session\n"
+                + "7. Exit\n"
                 + "==============================================\n"
                 + "\nEnter selection: \n");
     }
